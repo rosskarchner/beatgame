@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://dklura1qtaq5o"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_a6g8l"]
+[ext_resource type="Script" path="res://Player.gd" id="2_rsrmf"]
+[ext_resource type="Texture2D" uid="uid://d0ra2f3bmkejw" path="res://icon.svg" id="3_rswmd"]
+[ext_resource type="Script" path="res://BeatProgrammer.gd" id="4_evaa7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jhbkf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rswmd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gksh"]
+size = Vector2(58, 59)
+
+[node name="Level1" type="Node"]
+script = ExtResource("1_a6g8l")
+bpm = 240
+
+[node name="Player" type="AnimatableBody2D" parent="."]
+position = Vector2(-519, 267)
+script = ExtResource("2_rsrmf")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+scale = Vector2(0.46875, 0.46875)
+sprite_frames = SubResource("SpriteFrames_jhbkf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3gksh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="BeatProgrammer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_right = 0.035
+offset_left = 19.0
+offset_top = -293.0
+offset_right = 495.68
+offset_bottom = -150.0
+script = ExtResource("4_evaa7")
+numSteps = 5
+
+[node name="Forward Controls" type="HBoxContainer" parent="BeatProgrammer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="BeatProgrammer/Forward Controls"]
+layout_mode = 2
+text = "Forward"
+
+[node name="Left Controls" type="HBoxContainer" parent="BeatProgrammer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="BeatProgrammer/Left Controls"]
+layout_mode = 2
+text = "Left"
+
+[node name="Right Controls" type="HBoxContainer" parent="BeatProgrammer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="BeatProgrammer/Right Controls"]
+layout_mode = 2
+text = "Right"
+
+[node name="Backward Controls" type="HBoxContainer" parent="BeatProgrammer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="BeatProgrammer/Backward Controls"]
+layout_mode = 2
+text = "Back"
