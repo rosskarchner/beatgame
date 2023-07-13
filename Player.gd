@@ -1,14 +1,20 @@
-extends AnimatableBody2D
+extends CharacterBody2D
+
+var destination = Vector2.ZERO
+var listening = true
+
+@onready var starting_position = position
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	BeatTimer.connect("timeout", next_beat)
+func _physics_process(delta):
+	velocity = destination - position
+	if listening: move_and_collide(velocity * delta * 50)
+	
+func move_in_direction(direction):
+	if listening:
+		destination = position + (direction*50)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func next_beat():
-	self.position.x += 50
+func reset():
+	position=starting_position
+	destination = starting_position
+	listening = true
