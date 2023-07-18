@@ -1,0 +1,26 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://by52l4ipgx4pf"]
+
+[ext_resource type="Texture2D" uid="uid://b88plgiqb1xxd" path="res://hazard.png" id="1_pw5hi"]
+[ext_resource type="PackedScene" uid="uid://8fb2rlkw7ajl" path="res://goal.tscn" id="2_5acd1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rm2u"]
+texture = ExtResource("1_pw5hi")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.3344, -9.08717, 1.42544, -10.1562, 0.356358, 4.45449, -11.0471, 4.81085)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_grwek"]
+resource_name = "Goals"
+scenes/1/scene = ExtResource("2_5acd1")
+
+[resource]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 2
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Hazard"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_0rm2u")
+sources/1 = SubResource("TileSetScenesCollectionSource_grwek")

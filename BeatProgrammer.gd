@@ -7,7 +7,9 @@ signal program_changed
 var beatCountChanged = false
 var currentBeat = 0
 @onready var checkboxScene=preload("res://beat_control_checkbox.tscn")
-
+@export var bpm:int:
+	set(new_bpm):
+		$BeatTimer.set_bpm(bpm)
 
 @export var numSteps = 4:
 	set(new_value):
@@ -27,20 +29,22 @@ func _ready():
 	get_tree().call_group("beat_checkbox","connect", "pressed", func():
 		emit_signal("program_changed")
 		)
-	BeatTimer.timeout.connect(self.next_beat)
+	$BeatTimer.timeout.connect(self.next_beat)
 
 
 func next_beat():
 	currentBeat = wrap(currentBeat+1, 1, numSteps+1)
 	var combinedDirection = Vector2.ZERO
 	var checkboxes = get_tree().get_nodes_in_group("Beat" + str(currentBeat))
+	var player = get_tree().current_scene.playerNode
 	for cb in checkboxes:
 		if cb.button_pressed:
 			combinedDirection += cb.direction
 	
 	%Indicator.offset.x = (currentBeat-1) * 28
 	%Indicator.visible = true
-	%Player.move_in_direction(combinedDirection)
+	if is_instance_valid(player):
+		player.move_in_direction(combinedDirection)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
