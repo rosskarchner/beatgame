@@ -1,6 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://mnxchri4vink"]
-
-[ext_resource type="Script" path="res://BeatTimer.gd" id="1_i4xc3"]
+[gd_scene format=3 uid="uid://mnxchri4vink"]
 
 [node name="BeatTimer" type="Timer"]
-script = ExtResource("1_i4xc3")

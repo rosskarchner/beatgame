@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bbytrbwiqlrmj"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "you win"

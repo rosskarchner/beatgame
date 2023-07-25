@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://8fb2rlkw7ajl"]
+[gd_scene load_steps=8 format=3 uid="uid://8fb2rlkw7ajl"]
 
 [ext_resource type="Script" path="res://goal.gd" id="1_l3qbs"]
 [ext_resource type="Texture2D" uid="uid://c0hh64xvdxtn8" path="res://hotdog.png" id="1_s34br"]
+[ext_resource type="AudioStream" uid="uid://cym82xm86w2i3" path="res://assets/yum.wav" id="3_nguxk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v6c82"]
 animations = [{
@@ -17,7 +18,27 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcv46"]
 size = Vector2(61, 59)
 
-[node name="Goal" type="Node2D"]
+[sub_resource type="Animation" id="Animation_mx6w6"]
+resource_name = "win"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(100, 100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4asb2"]
+_data = {
+"win": SubResource("Animation_mx6w6")
+}
+
+[node name="Goal" type="Node2D" groups=["goals"]]
 script = ExtResource("1_l3qbs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -29,4 +50,14 @@ sprite_frames = SubResource("SpriteFrames_v6c82")
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_kcv46")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nguxk")
+bus = &"Yum"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4asb2")
+}
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,13 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://cj3e3l72nbh2n"]
+[gd_scene load_steps=10 format=3 uid="uid://cj3e3l72nbh2n"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_xnwg7"]
-[ext_resource type="Texture2D" uid="uid://d0ra2f3bmkejw" path="res://icon.svg" id="2_53saq"]
+[ext_resource type="Texture2D" uid="uid://d38ipu7xu7xq" path="res://assets/beatgame-player_1.png" id="2_fr0nw"]
+[ext_resource type="Texture2D" uid="uid://ddesjp6dnbu4t" path="res://assets/beatgame-player_2.png" id="3_j1sdp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jhbkf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_53saq")
+"texture": ExtResource("2_fr0nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j1sdp")
 }],
 "loop": true,
 "name": &"default",
@@ -17,19 +21,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gksh"]
 size = Vector2(11, 11)
 
-[sub_resource type="Animation" id="Animation_f8r2w"]
-resource_name = "die"
+[sub_resource type="Animation" id="Animation_3w6gv"]
+resource_name = "appear"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Player:scale")
+tracks/0/path = NodePath("Player/AnimatedSprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(1, 1)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -38,16 +43,62 @@ tracks/1/path = NodePath("Player")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.7),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"actually_dead"
+"method": &"restore"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_f8r2w"]
+resource_name = "die"
+length = 1.3
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"go_home"
+}, {
+"args": [],
+"method": &"restore"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/AnimatedSprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player/Dialog:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xuxje"]
 _data = {
+"appear": SubResource("Animation_3w6gv"),
 "die": SubResource("Animation_f8r2w")
 }
 
@@ -60,8 +111,8 @@ script = ExtResource("1_xnwg7")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.46875, 0.46875)
 sprite_frames = SubResource("SpriteFrames_jhbkf")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
@@ -69,6 +120,7 @@ shape = SubResource("RectangleShape2D_3gksh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
+autoplay = "appear"
 libraries = {
 "": SubResource("AnimationLibrary_xuxje")
 }
@@ -79,5 +131,14 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalVisibility"]
 shape = SubResource("RectangleShape2D_lnlfl")
+
+[node name="Dialog" type="Label" parent="."]
+visible = false
+offset_left = 19.0
+offset_top = -60.0
+offset_right = 96.0
+offset_bottom = -34.0
+rotation = 0.150098
+text = "I am dead"
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
