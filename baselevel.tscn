@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dklura1qtaq5o"]
+[gd_scene load_steps=13 format=3 uid="uid://dklura1qtaq5o"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_a6g8l"]
 [ext_resource type="Script" path="res://BeatProgrammer.gd" id="4_evaa7"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://ckknix3d5csh8" path="res://assets/tapC.wav" id="7_gnufr"]
 [ext_resource type="PackedScene" uid="uid://cj3e3l72nbh2n" path="res://player.tscn" id="7_je7xj"]
 [ext_resource type="AudioStream" uid="uid://8nsenq2cc3xd" path="res://assets/tapD.wav" id="8_rf0ff"]
+[ext_resource type="Script" path="res://SolutionProjector.gd" id="11_drhaf"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_q3ue6"]
 
@@ -100,8 +101,12 @@ layer_0/tile_data = PackedInt32Array(131073, 0, 0, 65536, 0, 0, 196606, 0, 0, 26
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("7_je7xj")]
+unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("ImageTexture_q3ue6")
+
+[node name="SolutionProjector" type="Node2D" parent="."]
+script = ExtResource("11_drhaf")
 
 [connection signal="pressed" from="BeatProgrammer/Button" to="." method="_on_button_pressed"]
