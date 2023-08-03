@@ -4,13 +4,13 @@
 [ext_resource type="Script" path="res://beat_control_checkbox.gd" id="3_dicxl"]
 [ext_resource type="PackedScene" uid="uid://2isp2wjuf5c0" path="res://beat_control_checkbox.tscn" id="3_yach7"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_7lhwg"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_mnxky"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_7b2hf"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_u1p3b"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_agp24"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_d8tpm"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_x7tu3"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_5gkcg"]
 
 [node name="Level 1" instance=ExtResource("1_0xm8o")]
 
@@ -22,103 +22,103 @@ numSteps = 4
 unique_name_in_owner = true
 wait_time = inf
 
-[node name="BeatControlCheckbox" type="CheckBox" parent="BeatProgrammer/Forward Controls" index="1" groups=["Beat1", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19075" type="CheckBox" parent="BeatProgrammer/Forward Controls" index="1" groups=["Beat1", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
 button_pressed = true
-button_group = SubResource("ButtonGroup_7lhwg")
+button_group = SubResource("ButtonGroup_mnxky")
 script = ExtResource("3_dicxl")
 direction = Vector2(0, -1)
 
-[node name="@CheckBox@19696" type="CheckBox" parent="BeatProgrammer/Forward Controls" index="2" groups=["Beat2", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19076" type="CheckBox" parent="BeatProgrammer/Forward Controls" index="2" groups=["Beat2", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
 button_pressed = true
-button_group = SubResource("ButtonGroup_7b2hf")
+button_group = SubResource("ButtonGroup_u1p3b")
 script = ExtResource("3_dicxl")
 direction = Vector2(0, -1)
 
-[node name="@CheckBox@19697" type="CheckBox" parent="BeatProgrammer/Forward Controls" index="3" groups=["Beat3", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19077" type="CheckBox" parent="BeatProgrammer/Forward Controls" index="3" groups=["Beat3", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
 button_pressed = true
-button_group = SubResource("ButtonGroup_agp24")
+button_group = SubResource("ButtonGroup_d8tpm")
 script = ExtResource("3_dicxl")
 direction = Vector2(0, -1)
 
-[node name="@CheckBox@19698" type="CheckBox" parent="BeatProgrammer/Forward Controls" index="4" groups=["Beat4", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19078" type="CheckBox" parent="BeatProgrammer/Forward Controls" index="4" groups=["Beat4", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
 button_pressed = true
-button_group = SubResource("ButtonGroup_x7tu3")
+button_group = SubResource("ButtonGroup_5gkcg")
 script = ExtResource("3_dicxl")
 direction = Vector2(0, -1)
 
-[node name="BeatControlCheckbox" type="CheckBox" parent="BeatProgrammer/Left Controls" index="1" groups=["Beat1", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19079" type="CheckBox" parent="BeatProgrammer/Left Controls" index="1" groups=["Beat1", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_7lhwg")
+button_group = SubResource("ButtonGroup_mnxky")
 script = ExtResource("3_dicxl")
 direction = Vector2(-1, 0)
 
-[node name="@CheckBox@19699" type="CheckBox" parent="BeatProgrammer/Left Controls" index="2" groups=["Beat2", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19080" type="CheckBox" parent="BeatProgrammer/Left Controls" index="2" groups=["Beat2", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_7b2hf")
+button_group = SubResource("ButtonGroup_u1p3b")
 script = ExtResource("3_dicxl")
 direction = Vector2(-1, 0)
 
-[node name="@CheckBox@19700" type="CheckBox" parent="BeatProgrammer/Left Controls" index="3" groups=["Beat3", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19081" type="CheckBox" parent="BeatProgrammer/Left Controls" index="3" groups=["Beat3", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_agp24")
+button_group = SubResource("ButtonGroup_d8tpm")
 script = ExtResource("3_dicxl")
 direction = Vector2(-1, 0)
 
-[node name="@CheckBox@19701" type="CheckBox" parent="BeatProgrammer/Left Controls" index="4" groups=["Beat4", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19082" type="CheckBox" parent="BeatProgrammer/Left Controls" index="4" groups=["Beat4", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_x7tu3")
+button_group = SubResource("ButtonGroup_5gkcg")
 script = ExtResource("3_dicxl")
 direction = Vector2(-1, 0)
 
-[node name="BeatControlCheckbox" type="CheckBox" parent="BeatProgrammer/Right Controls" index="1" groups=["Beat1", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19083" type="CheckBox" parent="BeatProgrammer/Right Controls" index="1" groups=["Beat1", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_7lhwg")
+button_group = SubResource("ButtonGroup_mnxky")
 script = ExtResource("3_dicxl")
 direction = Vector2(1, 0)
 
-[node name="@CheckBox@19702" type="CheckBox" parent="BeatProgrammer/Right Controls" index="2" groups=["Beat2", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19084" type="CheckBox" parent="BeatProgrammer/Right Controls" index="2" groups=["Beat2", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_7b2hf")
+button_group = SubResource("ButtonGroup_u1p3b")
 script = ExtResource("3_dicxl")
 direction = Vector2(1, 0)
 
-[node name="@CheckBox@19703" type="CheckBox" parent="BeatProgrammer/Right Controls" index="3" groups=["Beat3", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19085" type="CheckBox" parent="BeatProgrammer/Right Controls" index="3" groups=["Beat3", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_agp24")
+button_group = SubResource("ButtonGroup_d8tpm")
 script = ExtResource("3_dicxl")
 direction = Vector2(1, 0)
 
-[node name="@CheckBox@19704" type="CheckBox" parent="BeatProgrammer/Right Controls" index="4" groups=["Beat4", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19086" type="CheckBox" parent="BeatProgrammer/Right Controls" index="4" groups=["Beat4", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_x7tu3")
+button_group = SubResource("ButtonGroup_5gkcg")
 script = ExtResource("3_dicxl")
 direction = Vector2(1, 0)
 
-[node name="BeatControlCheckbox" type="CheckBox" parent="BeatProgrammer/Backward Controls" index="1" groups=["Beat1", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19087" type="CheckBox" parent="BeatProgrammer/Backward Controls" index="1" groups=["Beat1", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_7lhwg")
+button_group = SubResource("ButtonGroup_mnxky")
 script = ExtResource("3_dicxl")
 direction = Vector2(0, 1)
 
-[node name="@CheckBox@19705" type="CheckBox" parent="BeatProgrammer/Backward Controls" index="2" groups=["Beat2", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19088" type="CheckBox" parent="BeatProgrammer/Backward Controls" index="2" groups=["Beat2", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_7b2hf")
+button_group = SubResource("ButtonGroup_u1p3b")
 script = ExtResource("3_dicxl")
 direction = Vector2(0, 1)
 
-[node name="@CheckBox@19706" type="CheckBox" parent="BeatProgrammer/Backward Controls" index="3" groups=["Beat3", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19089" type="CheckBox" parent="BeatProgrammer/Backward Controls" index="3" groups=["Beat3", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_agp24")
+button_group = SubResource("ButtonGroup_d8tpm")
 script = ExtResource("3_dicxl")
 direction = Vector2(0, 1)
 
-[node name="@CheckBox@19707" type="CheckBox" parent="BeatProgrammer/Backward Controls" index="4" groups=["Beat4", "beat_checkbox"] instance=ExtResource("3_yach7")]
+[node name="@CheckBox@19090" type="CheckBox" parent="BeatProgrammer/Backward Controls" index="4" groups=["Beat4", "beat_checkbox"] instance=ExtResource("3_yach7")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_x7tu3")
+button_group = SubResource("ButtonGroup_5gkcg")
 script = ExtResource("3_dicxl")
 direction = Vector2(0, 1)
 

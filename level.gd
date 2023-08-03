@@ -9,6 +9,7 @@ func _ready():
 	
 		$BeatProgrammer.program_changed.connect(func():
 			reset_beats()
+			playerNode.go_home()
 			)
 		$Player.died.connect(self.handle_player_death)
 
@@ -27,6 +28,7 @@ func reset_beats(_arg=null):
 	
 
 func start():
+	playerNode.go_home()
 	$BeatProgrammer/BeatTimer.start()
 
 	
